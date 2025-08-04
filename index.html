@@ -24,63 +24,124 @@
   </style>
 </head>
 <body>
+
   <div class="container">
-    <h1>📦 S.K.D – איסוף חבילות מחו"ל עד הבית</h1>
-    <h2>קיבלת הודעה על חבילה מחו"ל? אנחנו נאסוף עבורך מנקודת האיסוף ונביא עד הבית – ב־25 ₪ בלבד!</h2>
 
-    <div class="notice">❗ השירות פעיל כרגע רק בשכונות אם המושבות, הדר המושבות, קרול ונווה גן בפתח תקווה ❗<br>
-    ⏰ שעות פעילות: ימים א׳–ה׳, 09:00–17:00.<br>🏪 השירות ניתן בכפוף לשעות הפעילות של בית העסק בו נמצאת החבילה.</div>
+ <!-- 🔷 פס עליון ממותג עם תיאור -->
+<div style="width:100%; background-color:#00bcd4; padding:16px 0; text-align:center; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+  <div style="color:white; font-size:26px; font-weight:bold; letter-spacing:1px;">
+    S.K.D Delivery
+  </div>
+  <div style="color:white; font-size:16px; font-weight:400; margin-top:5px;">
+    איסוף חבילות מחו"ל עד הבית
+  </div>
+</div>
 
-    <p><strong>מחירון:</strong><br>
-    איסוף חבילה – 25 ש"ח<br>
-    חבילה נוספת מאותו מקום – 5 ש"ח<br>
-    חבילה נוספת ממקום אחר – 15 ש"ח</p>
 
-    <label>👤 שם מלא<input type="text" id="name" /></label>
-    <label>📞 טלפון<input type="text" id="phone" /></label>
-    <label>🏠 כתובת למשלוח<input type="text" id="address" /></label>
+   <!-- פתיח מחודש -->
+<div style="text-align:center; margin:25px 0 20px 0;">
+  <h2 style="font-size:22px; font-weight:800; margin-bottom:10px; color:#111;">
+    לא בא לך ללכת לאסוף ת'חבילה?
+  </h2>
+  <p style="font-size:18px; font-weight:400; margin:0; color:#333;">
+    שלח לנו את ההודעה – ואנחנו נביא אותה אליך.
+  </p>
+  <p style="font-size:16px; font-weight:400; color:#666; margin-top:10px;">
+  והאישה? היא אפילו לא תדע שהמשכת לגרבץ 😏<br>
+  <span style="font-size:14px; color:#999;">(כמובן שאתה תספר לה... אבל עדיין)</span>
+</p>
 
-    <label>📝 הוראות מיוחדות לשליח
-      <input type="text" id="extraInfo" placeholder="קוד כניסה, קומה, דירה, הערות חשובות..." />
-    </label>
+</div>
 
-    <label>✉️ אימייל לקבלת חשבונית<input type="text" id="email" /></label>
 
-    <label>📩 הדבק כאן את ההודעה מחברת השילוח</label>
-    <textarea id="sms" placeholder="לדוגמה:
+    <!-- 📦 קופסת מידע מעודכנת -->
+<div style="background-color:#fff8e1; color:#5d4037; padding:12px 16px; border-radius:8px; font-size:15px; line-height:1.6; margin-bottom:20px; text-align:right; border-right:5px solid #ff9800;">
+    🕒 פעיל בימים א'–ה', 09:00–17:00 ואם ממש לחוץ אפשר לדבר על שישי<br>
+  🏪 כפוף לשעות פעילות של נקודת האיסוף
+</div>
+
+
+  <strong>🏷️ תכיר את המחירון שלנו:</strong><br>
+📦 איסוף חבילה אחת – 25 ש"ח<br>
+➕ חבילה נוספת מאותו מקום – 5 ש"ח<br>
+📍 חבילה נוספת ממקום אחר – 15 ש"ח<br><br>
+מחיר סופי. בלי אותיות קטנות. בלי הפתעות.
+
+<!-- 🧔‍♂️ גירסה חדשה לגבר -->
+<label>💬 מה השם שלך, גבר?
+  <input type="text" id="name" />
+</label>
+
+<label>📞 מה הטלפון כדי שהשליח יוכל להודיע לך שהוא הגיע?
+  <input type="text" id="phone" />
+</label>
+
+<label>📍 לאן להביא לך את החבילה?
+  <input type="text" id="address" />
+</label>
+
+<label>📝 יש הנחיות מיוחדות לכתובת? (קומה, קוד כניסה או משהו נוסף)
+  <input type="text" id="extraInfo" placeholder="לדוגמה: קומה 4, דירה 12, קוד 1234" />
+</label>
+
+<label>✉️ תן לנו מייל כדי שלא נעבוד בשחור
+  <input type="text" id="email" />
+</label>
+
+<label>📩 שים כאן את ההודעה עם הפרטים על החבילה</label>
+<textarea id="sms" placeholder="לדוגמה:
 שלום ישראל ישראלי, משלוח Epost מיקום בחנות Hfd002742213 EP902308243 מחברת Cainiao ממתין לאיסופך. (מספר Epost 76025725). חנות: שוק בשכונה קוד לקבלת החבילה: 333857 בכתובת עין גנים 96 פתח תקווה...
 📌 העתק את ההודעה שקיבלת ב-SMS מחברת השילוח והדבק כאן."></textarea>
 
-    <div class="checkbox-container">
-      <input type="checkbox" id="samePlace" /> יש לי חבילה נוספת מאותו מקום<br />
-      <textarea id="sms2" placeholder="הודעת SMS נוספת (מאותו מקום)" disabled></textarea>
-    </div>
+<div class="checkbox-container">
+  <input type="checkbox" id="samePlace" /> סמן כאן ושים את ההודעה אם יש לך חבילה נוספת מאותו מקום<br />
+  <textarea id="sms2" placeholder="הודעת SMS נוספת (מאותו מקום)" disabled></textarea>
+</div>
 
-    <div class="checkbox-container">
-      <input type="checkbox" id="diffPlace" /> יש לי חבילה נוספת ממקום אחר<br />
-      <textarea id="sms3" placeholder="הודעת SMS נוספת (ממקום אחר)" disabled></textarea>
-    </div>
+<div class="checkbox-container">
+  <input type="checkbox" id="diffPlace" /> וכאן אם יש לך חבילה נוספת ממקום אחר<br />
+  <textarea id="sms3" placeholder="הודעת SMS נוספת (ממקום אחר)" disabled></textarea>
+</div>
 
-    <label>📦 המוצר רגיש (שביר, קפוא וכו')<textarea id="note"></textarea></label>
+<label>📦 יש משהו חשוב שנדע?
+  <textarea id="note"></textarea>
+</label>
 
-    <div class="tos">
-      📲 לאחר חישוב התשלום, ניתן לשלם בביט למספר: 052-3285367 או לבחור לשלם במזומן לשליח. <br>
-      לאחר ביצוע התשלום, השליח ייצא לדרך 🚴‍♂️
-    </div>
+<div class="tos">
+  📲 אחרי שנחשב את הסכום, תוכל לבחור לשלם בביט או לתת לשליח מזומן.<br>
+  והשליח יוצא לדרך 🚴‍♂️
+</div>
 
-    <button class="btn" onclick="calculateSummary()">חשב סיכום הזמנה</button>
-    <div class="summary-box" id="summary"></div>
+<button class="btn" onclick="calculateSummary()">סיכום ההזמנה</button>
+<div class="summary-box" id="summary"></div>
 
-    <div class="checkbox-container">
-      <label><input type="radio" name="paymentMethod" id="payBit" /> תשלום בביט</label><br>
-      <label><input type="radio" name="paymentMethod" id="payCash" /> תשלום במזומן לשליח בעת קבלת החבילה</label>
-    </div>
+<div class="checkbox-container">
+  <label>💰 איך אתה מעדיף לשלם?</label><br>
+  <label>
+  <input type="radio" name="paymentMethod" id="payBit" onclick="showBitNumber(true)" />
+  ביט
+</label>
+<div class="checkbox-container" id="bitNumberLine" style="display:none; margin-right: 20px;">
+  📲 שלח תשלום בביט ל: <strong>052-3285367</strong>
+</div>
 
-    <div class="checkbox-container">
-      <input type="checkbox" id="termsConfirm" /> אני מאשר/ת שקראתי את תנאי השירות ומסכים/ה להם
-    </div>
+<label>
+  <input type="radio" name="paymentMethod" id="payCash" onclick="showBitNumber(false)" />
+  מזומן
+</label>
 
-    <button class="btn" onclick="sendEmailOnly()">סיום ושלח את ההזמנה</button>
+<div class="checkbox-container">
+  <input type="checkbox" id="termsConfirm" /> אני מאשר שקראתי את תנאי השירות ואני מסכים להם
+</div>
+
+<button class="btn" onclick="sendEmailOnly()">יאללה, שלח את ההזמנה</button>
+
+<script>
+function showBitNumber(show) {
+  document.getElementById("bitNumberLine").style.display = show ? "block" : "none";
+}
+</script>
+
 
     <div class="footer">
       <h3>📜 תנאי שירות ומשלוחים</h3>
