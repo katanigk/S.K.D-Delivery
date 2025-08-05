@@ -218,6 +218,33 @@
     function sendEmailOnly() {
       // ניתן לממש לפי הצורך
     }
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("DRCnw2qGu7HZ6RQ4S");
+  })();
+
+  function sendEmailOnly() {
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const address = document.getElementById("address").value;
+    const sms = document.getElementById("sms").value;
+
+    const templateParams = {
+      user_name: name,
+      user_phone: phone,
+      user_address: address,
+      user_sms: sms
+    };
+
+    emailjs.send("service_g3p8gge4", "template_uc1juu9", templateParams)
+      .then(() => {
+        alert("הזמנה נשלחה בהצלחה! מייל נשלח ללקוח ✅");
+      }, (error) => {
+        alert("קרתה תקלה בשליחה: " + JSON.stringify(error));
+      });
+  }
+
   </script>
 </body>
 </html>
