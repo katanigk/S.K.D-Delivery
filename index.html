@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>S.K.D – איסוף חבילות מחו"ל עד הבית</title>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <style>
     body {
       font-family:'Heebo',sans-serif;
@@ -80,18 +81,17 @@
       white-space:pre-line;
     }
     .footer {
-  text-align: right;
-  direction: rtl;
-  font-size: 14px;
-  margin-top: 20px;
-  color: #333;
-  line-height: 1.8;
-  padding-right: 8px;
-}
-.footer p {
-  text-align: right;
-}
-
+      text-align: right;
+      direction: rtl;
+      font-size: 14px;
+      margin-top: 20px;
+      color: #333;
+      line-height: 1.8;
+      padding-right: 8px;
+    }
+    .footer p {
+      text-align: right;
+    }
     .contact-line {
       text-align:center;
       margin-top:20px;
@@ -127,17 +127,18 @@
     <h2>קיבלת SMS על חבילה?</h2>
     <p>שולחים לנו את ההודעה – ואנחנו מביאים עד הבית.</p>
     <p style="color:#555;">בלי מאמץ, בלי דאגות, פשוט וקל!</p>
-<div style="background:#fff3cd; padding:12px 16px; border-radius:8px; margin:20px 0; color:#5d4037; font-size:15px; line-height:1.7;">
-  <strong>קצת פרטים:</strong><br>
-  השירות פועל בימים א׳–ה׳ בין השעות 09:00–18:00,<br>
-  בכפוף לשעות הפעילות של בית העסק בו נמצאת החבילה.<br><br>
-  <strong>המחירון שלנו – בלי אותיות קטנות:</strong><br>
-  25 ש״ח לחבילה ראשונה<br>
-  5 ש״ח לחבילה נוספת מאותו מקום<br>
-  15 ש״ח לחבילה ממקום אחר<br><br>
-  משלוחים בשישי או משלוחים מיוחדים – בתיאום מראש במייל:<br>
-  <a href="mailto:deliveryskd@gmail.com">deliveryskd@gmail.com</a>
-</div>
+
+    <div style="background:#fff3cd; padding:12px 16px; border-radius:8px; margin:20px 0; color:#5d4037; font-size:15px; line-height:1.7;">
+      <strong>קצת פרטים:</strong><br>
+      השירות פועל בימים א׳–ה׳ בין השעות 09:00–18:00,<br>
+      בכפוף לשעות הפעילות של בית העסק בו נמצאת החבילה.<br><br>
+      <strong>המחירון שלנו – בלי אותיות קטנות:</strong><br>
+      25 ש"ח לחבילה ראשונה<br>
+      5 ש"ח לחבילה נוספת מאותו מקום<br>
+      15 ש"ח לחבילה ממקום אחר<br><br>
+      משלוחים בשישי או משלוחים מיוחדים – בתיאום מראש במייל:<br>
+      <a href="mailto:deliveryskd@gmail.com">deliveryskd@gmail.com</a>
+    </div>
 
     <label>למי למסור?</label>
     <input type="text" id="name" />
@@ -203,48 +204,51 @@
 10. מחירים עשויים להשתנות. המחיר שחל בעת ההזמנה – הוא המחייב.<br>
 11. נעשה כל מאמץ לעמוד בזמנים, אך ייתכנו עיכובים שאינם בשליטתנו (מזג אוויר, תקלות וכו').<br>
 
-    <p class="contact-line">
-      📧 שאלה, פנייה או הצעה? – <a href="mailto:deliveryskd@gmail.com">deliveryskd@gmail.com</a>
-    </p>
+      <p class="contact-line">
+        📧 שאלה, פנייה או הצעה? – <a href="mailto:deliveryskd@gmail.com">deliveryskd@gmail.com</a>
+      </p>
+    </div>
   </div>
 
   <script>
+    emailjs.init("DRCnw2qGu7HZ6RQ4S");
+
+    document.getElementById("samePlace").addEventListener("change", function () {
+      document.getElementById("sms2").disabled = !this.checked;
+    });
+
+    document.getElementById("diffPlace").addEventListener("change", function () {
+      document.getElementById("sms3").disabled = !this.checked;
+    });
+
     function showBitNumber(show) {
       document.getElementById("bitNumberLine").style.display = show ? "block" : "none";
     }
+
     function calculateSummary() {
-      // ניתן לממש לפי הצורך
+      // כאן אפשר לממש בעתיד סיכום מחיר לפי הצ'קבוקסים
     }
+
     function sendEmailOnly() {
-      // ניתן לממש לפי הצורך
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const address = document.getElementById("address").value;
+      const sms = document.getElementById("sms").value;
+
+      const templateParams = {
+        user_name: name,
+        user_phone: phone,
+        user_address: address,
+        user_sms: sms
+      };
+
+      emailjs.send("service_g3p8gge4", "template_uc1juu9", templateParams)
+        .then(() => {
+          alert("הזמנה נשלחה בהצלחה! מייל נשלח ללקוח ✅");
+        }, (error) => {
+          alert("קרתה תקלה בשליחה: " + JSON.stringify(error));
+        });
     }
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  (function() {
-    emailjs.init("DRCnw2qGu7HZ6RQ4S");
-  })();
-
-  function sendEmailOnly() {
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const address = document.getElementById("address").value;
-    const sms = document.getElementById("sms").value;
-
-    const templateParams = {
-      user_name: name,
-      user_phone: phone,
-      user_address: address,
-      user_sms: sms
-    };
-
-    emailjs.send("service_g3p8gge4", "template_uc1juu9", templateParams)
-      .then(() => {
-        alert("הזמנה נשלחה בהצלחה! מייל נשלח ללקוח ✅");
-      }, (error) => {
-        alert("קרתה תקלה בשליחה: " + JSON.stringify(error));
-      });
-  }
-
   </script>
 </body>
 </html>
