@@ -187,6 +187,10 @@
 
     <button class="btn" onclick="calculateSummary()">חשב סיכום הזמנה</button>
     <div class="summary-box" id="summary"></div>
+<p style="text-align:center; font-weight:bold; color:#333; margin-top:10px;">
+אם הכל נראה תקין – לחץ על כפתור השליחה 🎯
+</p>
+
     <button class="btn" onclick="sendEmailOnly()">שליחה</button>
 
     <div class="footer">
@@ -210,45 +214,93 @@
     </div>
   </div>
 
-  <script>
+  // כולל הספריה של emailjs
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // הפעלת המערכת
+  (function() {
     emailjs.init("DRCnw2qGu7HZ6RQ4S");
+  })();
 
-    document.getElementById("samePlace").addEventListener("change", function () {
-      document.getElementById("sms2").disabled = !this.checked;
-    });
+  // הפעלת טקסט חבילות נוספות
+  document.getElementById("samePlace").addEventListener("change", function () {
+    document.getElementById("sms2").disabled = !this.checked;
+  });
 
-    document.getElementById("diffPlace").addEventListener("change", function () {
-      document.getElementById("sms3").disabled = !this.checked;
-    });
+  document.getElementById("diffPlace").addEventListener("change", function () {
+    document.getElementById("sms3").disabled = !this.checked;
+  });
 
-    function showBitNumber(show) {
-      document.getElementById("bitNumberLine").style.display = show ? "block" : "none";
-    }
+  // לחצן "חשב סיכום הזמנה"
+  function calculateSummary() {
+    let total = 25;
+    const samePlace = document.getElementById("samePlace").checked;
+    const diffPlace = document.getElementById("diffPlace").checked;
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const address = document.getElementById("address").value;
+    const email = document.getElementById("email").value;
+    const paymentMethod = document.getElementById("payBit").checked ? "ביט" : "מזומן";
 
-    function calculateSummary() {
-      // כאן אפשר לממש בעתיד סיכום מחיר לפי הצ'קבוקסים
-    }
+    if (samePlace) total += 5;
+    if (diffPlace) total += 15;
 
-    function sendEmailOnly() {
-      const name = document.getElementById("name").value;
-      const phone = document.getElementById("phone").value;
-      const address = document.getElementById("address").value;
-      const sms = document.getElementById("sms").value;
+    let summaryText = `סיכום הזמנה:\n`;
+    summaryText += `שם: ${name}\n`;
+    summaryText += `טלפון: ${phone}\n`;
+    summaryText += `כתובת: ${address}\n`;
+    summaryText += `אימייל: ${email}\n`;
+    summaryText += `אמצעי תשלום: ${paymentMethod}\n`;
+    summaryText += `\nעלויות:\nחבילה ראשונה – 25 ש"ח\n`;
+    if (samePlace) summaryText += `חבילה נוספת מאותו מקום – 5 ש"ח\n`;
+    if (diffPlace) summaryText += `חבילה נוספת ממקום אחר – 15 ש"ח\n`;
+    summaryText += `\n✅ סה"כ לתשלום: ${total} ש"ח`;
 
-      const templateParams = {
-        user_name: name,
-        user_phone: phone,
-        user_address: address,
-        user_sms: sms
-      };
+    document.getElementById("summary").innerText = summaryText;
+  }
 
-      emailjs.send("service_g3p8gge4", "template_uc1juu9", templateParams)
-        .then(() => {
-          alert("הזמנה נשלחה בהצלחה! מייל נשלח ללקוח ✅");
-        }, (error) => {
-          alert("קרתה תקלה בשליחה: " + JSON.stringify(error));
-        });
-    }
-  </script>
+  // שליחת אימייל
+  function sendEmailOnly() {
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const address = document.getElementById("address").value;
+    const email = document.getElementById("email").value;
+    const extraInfo = document.getElementById("extraInfo").value;
+    const sms = document.getElementById("sms").value;
+    const sms2 = document.getElementById("sms2").value;
+    const sms3 = document.getElementById("sms3").value;
+    const paymentMethod = document.getElementById("payBit").checked ? "ביט" : "מזומן";
+
+    let total = 25;
+    if (document.getElementById("samePlace").checked) total += 5;
+    if (document.getElementById("diffPlace").checked) total += 15;
+
+    const templateParams = {
+      to_name: name,
+      address: address,
+      phone: phone,
+      email: email,
+      extra_info: extraInfo,
+      payment_method: paymentMethod,
+      total: total,
+      sms_html: sms,
+      sms2_html: sms2,
+      sms3_html: sms3
+    };
+
+    emailjs.send("service_g3p8gge4", "template_uc1juu9", templateParams)
+      .then(() => {
+        alert("הזמנה נשלחה בהצלחה! מייל נשלח ללקוח ✅");
+      }, (error) => {
+        alert("קרתה תקלה בשליחה: " + JSON.stringify(error));
+      });
+  }
+
+  // ביט קופץ
+  function showBitNumber(show) {
+    document.getElementById("bitNumberLine").style.display = show ? "block" : "none";
+  }
+</script>
+
 </body>
 </html>
