@@ -142,8 +142,12 @@ function calculateSummary() {
   const address = document.getElementById('address').value.trim();
   const extraInfo = document.getElementById('extraInfo').value.trim();
   const email = document.getElementById('email').value.trim();
-   const orderId = generateOrderId();
-   window.currentOrderId = orderId; // נשמור לשימוש אחר כך
+  const sms = document.getElementById('sms').value.trim();
+  const sms2 = document.getElementById('sms2').value.trim();
+  const sms3 = document.getElementById('sms3').value.trim();
+  const note = document.getElementById('note').value.trim();
+  const orderId = generateOrderId();
+  window.currentOrderId = orderId;
 
   if (!name || !phone || !address || !email) {
     alert("יש למלא שם, טלפון, כתובת ומייל לפני חישוב סיכום הזמנה.");
@@ -151,9 +155,9 @@ function calculateSummary() {
   }
 
   let total = 25;
-   window.latestTotal = total;
   if (document.getElementById('samePlace').checked) total += 5;
   if (document.getElementById('diffPlace').checked) total += 15;
+  window.latestTotal = total;
 
   const paymentMethod = document.getElementById('payCash').checked
     ? "מזומן"
@@ -167,18 +171,22 @@ function calculateSummary() {
   }
 
   const summary =
-    ` סיכום הזמנה:\n` +
-      ` מספר הזמנה: ${orderId}\n` +
-    ` שם: ${name}\n` +
-    ` טלפון: ${phone}\n` +
-    ` כתובת: ${address}\n` +
-    ` הוראות מיוחדות: ${extraInfo || "אין"}\n` +
-    ` מייל לחשבונית: ${email}\n` +
-    ` אמצעי תשלום: ${paymentMethod}\n` +
-    ` <strong>סה״כ לתשלום: ${total} ש"ח</strong>`;
+    `📦 סיכום הזמנה:\n` +
+    `מספר הזמנה: ${orderId}\n` +
+    `שם: ${name}\n` +
+    `טלפון: ${phone}\n` +
+    `כתובת: ${address}\n` +
+    `הוראות מיוחדות: ${extraInfo || "אין"}\n` +
+    `מייל לחשבונית: ${email}\n\n` +
+    `📩 הודעת SMS: ${sms || "לא נמסרה"}\n` +
+    (sms2 ? `📦 חבילה נוספת מאותו מקום:\n${sms2}\n` : "") +
+    (sms3 ? `📦 חבילה ממקום אחר:\n${sms3}\n` : "") +
+    (note ? `הערות: ${note}\n` : "") +
+    `אמצעי תשלום: ${paymentMethod}\n` +
+    `סה״כ לתשלום: ${total} ש"ח`;
 
-  latestSummary = summary + `\nמקור ההזמנה: direct`;
-  document.getElementById("summary").innerHTML = summary;
+  window.latestSummary = summary + `\n\n📲 מקור ההזמנה: direct`;
+  document.getElementById("summary").innerText = summary;
 }
 
 
