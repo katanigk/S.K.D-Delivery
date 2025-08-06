@@ -5,117 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>S.K.D – איסוף חבילות מחו"ל עד הבית</title>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <style>
-    body {
-      font-family:'Heebo',sans-serif;
-      background:#f9f9f9;
-      margin:0;
-      padding:0;
-      display:flex;
-      justify-content:center;
-      align-items:flex-start;
-      min-height:100vh;
-    }
-    .container {
-      background:#f4fcff;
-      padding:20px 30px;
-      margin:30px;
-      border-radius:12px;
-      box-shadow:0 0 15px rgba(0,0,0,0.1);
-      width:100%;
-      max-width:500px;
-      border:1px solid #00bcd4;
-    }
-    h2 {
-      font-size:22px;
-      margin-bottom:10px;
-      color:#111;
-      text-align:center;
-    }
-    p {
-      font-size:16px;
-      color:#333;
-      text-align:center;
-    }
-    label {
-      display:block;
-      margin-top:12px;
-      font-weight:bold;
-    }
-    input[type="text"],
-    textarea {
-      width:100%;
-      padding:8px;
-      margin-top:5px;
-      border:1px solid #ccc;
-      border-radius:4px;
-      font-size:16px;
-    }
-    textarea {
-      resize:vertical;
-    }
-    .checkbox-container {
-      margin-top:10px;
-    }
-    .checkbox-container input {
-      margin-left:10px;
-    }
-    .btn {
-      display:block;
-      margin:20px 0;
-      background-color:#00bcd4;
-      color:white;
-      border:none;
-      padding:12px;
-      border-radius:4px;
-      font-size:16px;
-      cursor:pointer;
-      width:100%;
-    }
-    .summary-box {
-      background:#f1f1f1;
-      padding:10px;
-      border-radius:4px;
-      margin-top:10px;
-      white-space:pre-line;
-    }
-    .footer {
-      text-align: right;
-      direction: rtl;
-      font-size: 14px;
-      margin-top: 20px;
-      color: #333;
-      line-height: 1.8;
-      padding-right: 8px;
-    }
-    .footer p {
-      text-align: right;
-    }
-    .contact-line {
-      text-align:center;
-      margin-top:20px;
-      font-size:14px;
-    }
-    .header {
-      background-color:#00bcd4;
-      padding:16px 0;
-      text-align:center;
-      box-shadow:0 2px 5px rgba(0,0,0,0.1);
-      border-radius:8px 8px 0 0;
-      margin:-20px -30px 20px -30px;
-    }
-    .header-title {
-      color:white;
-      font-size:26px;
-      font-weight:bold;
-    }
-    .header-sub {
-      color:white;
-      font-size:16px;
-      margin-top:5px;
-    }
+    body {font-family:'Heebo',sans-serif;background:#f9f9f9;margin:0;padding:0;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;}
+    .container {background:#f4fcff;padding:20px 30px;margin:30px;border-radius:12px;box-shadow:0 0 15px rgba(0,0,0,0.1);width:100%;max-width:500px;border:1px solid #00bcd4;}
+    h2 {font-size:22px;margin-bottom:10px;color:#111;text-align:center;}
+    p {font-size:16px;color:#333;text-align:center;}
+    label {display:block;margin-top:12px;font-weight:bold;}
+    input[type="text"], textarea {width:100%;padding:8px;margin-top:5px;border:1px solid #ccc;border-radius:4px;font-size:16px;}
+    textarea {resize:vertical;}
+    .checkbox-container {margin-top:10px;}
+    .checkbox-container input {margin-left:10px;}
+    .btn {display:block;margin:20px 0;background-color:#00bcd4;color:white;border:none;padding:12px;border-radius:4px;font-size:16px;cursor:pointer;width:100%;}
+    .summary-box {background:#f1f1f1;padding:10px;border-radius:4px;margin-top:10px;white-space:pre-line;}
+    .footer {text-align: right;direction: rtl;font-size: 14px;margin-top: 20px;color: #333;line-height: 1.8;padding-right: 8px;}
+    .footer p {text-align: right;}
+    .contact-line {text-align:center;margin-top:20px;font-size:14px;}
+    .header {background-color:#00bcd4;padding:16px 0;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,0.1);border-radius:8px 8px 0 0;margin:-20px -30px 20px -30px;}
+    .header-title {color:white;font-size:26px;font-weight:bold;}
+    .header-sub {color:white;font-size:16px;margin-top:5px;}
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
   <div class="container">
@@ -127,18 +36,17 @@
     <h2>קיבלת SMS על חבילה?</h2>
     <p>שולחים לנו את ההודעה – ואנחנו מביאים עד הבית.</p>
     <p style="color:#555;">בלי מאמץ, בלי דאגות, פשוט וקל!</p>
-
-    <div style="background:#fff3cd; padding:12px 16px; border-radius:8px; margin:20px 0; color:#5d4037; font-size:15px; line-height:1.7;">
-      <strong>קצת פרטים:</strong><br>
-      השירות פועל בימים א׳–ה׳ בין השעות 09:00–18:00,<br>
-      בכפוף לשעות הפעילות של בית העסק בו נמצאת החבילה.<br><br>
-      <strong>המחירון שלנו – בלי אותיות קטנות:</strong><br>
-      25 ש"ח לחבילה ראשונה<br>
-      5 ש"ח לחבילה נוספת מאותו מקום<br>
-      15 ש"ח לחבילה ממקום אחר<br><br>
-      משלוחים בשישי או משלוחים מיוחדים – בתיאום מראש במייל:<br>
-      <a href="mailto:deliveryskd@gmail.com">deliveryskd@gmail.com</a>
-    </div>
+<div style="background:#fff3cd; padding:12px 16px; border-radius:8px; margin:20px 0; color:#5d4037; font-size:15px; line-height:1.7;">
+  <strong>קצת פרטים:</strong><br>
+  השירות פועל בימים א׳–ה׳ בין השעות 09:00–18:00,<br>
+  בכפוף לשעות הפעילות של בית העסק בו נמצאת החבילה.<br><br>
+  <strong>המחירון שלנו – בלי אותיות קטנות:</strong><br>
+  25 ש״ח לחבילה ראשונה<br>
+  5 ש״ח לחבילה נוספת מאותו מקום<br>
+  15 ש״ח לחבילה ממקום אחר<br><br>
+  משלוחים בשישי או משלוחים מיוחדים – בתיאום מראש במייל:<br>
+  <a href="mailto:deliveryskd@gmail.com">deliveryskd@gmail.com</a>
+</div>
 
     <label>למי למסור?</label>
     <input type="text" id="name" />
@@ -187,8 +95,9 @@
 
     <button class="btn" onclick="calculateSummary()">חשב סיכום הזמנה</button>
     <div class="summary-box" id="summary"></div>
-<p style="text-align:center; font-weight:bold; color:#333; margin-top:10px;">
-אם הכל נראה תקין – לחץ על כפתור השליחה 🎯
+
+<p style="text-align:center; font-size: 16px; color:#333; margin-bottom: 10px;">
+  בדקת שהכל בסדר? נשאר רק ללחוץ שליחה והחבילה בדרך אליך 🚴‍♂️📦
 </p>
 
     <button class="btn" onclick="sendEmailOnly()">שליחה</button>
@@ -208,99 +117,117 @@
 10. מחירים עשויים להשתנות. המחיר שחל בעת ההזמנה – הוא המחייב.<br>
 11. נעשה כל מאמץ לעמוד בזמנים, אך ייתכנו עיכובים שאינם בשליטתנו (מזג אוויר, תקלות וכו').<br>
 
-      <p class="contact-line">
-        📧 שאלה, פנייה או הצעה? – <a href="mailto:deliveryskd@gmail.com">deliveryskd@gmail.com</a>
-      </p>
-    </div>
+    <p class="contact-line">
+      📧 שאלה, פנייה או הצעה? – <a href="mailto:deliveryskd@gmail.com">deliveryskd@gmail.com</a>
+    </p>
   </div>
 
-  // כולל הספריה של emailjs
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
 <script>
-  // הפעלת המערכת
-  (function() {
-    emailjs.init("DRCnw2qGu7HZ6RQ4S");
-  })();
+(function() {
+  emailjs.init("DRCnw2qGu7HZ6RQ4S");
+})();
 
-  // הפעלת טקסט חבילות נוספות
-  document.getElementById("samePlace").addEventListener("change", function () {
-    document.getElementById("sms2").disabled = !this.checked;
+function showBitNumber(show) {
+  document.getElementById("bitNumberLine").style.display = show ? "block" : "none";
+}
+function generateOrderId() {
+  const now = new Date();
+  return 'SKD-' + now.toISOString().replace(/[-T:.Z]/g, '').slice(0, 14);
+}
+function calculateSummary() {
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const extraInfo = document.getElementById('extraInfo').value.trim();
+  const email = document.getElementById('email').value.trim();
+   const orderId = generateOrderId();
+   window.currentOrderId = orderId; // נשמור לשימוש אחר כך
+
+  if (!name || !phone || !address || !email) {
+    alert("יש למלא שם, טלפון, כתובת ומייל לפני חישוב סיכום הזמנה.");
+    return;
+  }
+
+  let total = 25;
+   window.latestTotal = total;
+  if (document.getElementById('samePlace').checked) total += 5;
+  if (document.getElementById('diffPlace').checked) total += 15;
+
+  const paymentMethod = document.getElementById('payCash').checked
+    ? "מזומן"
+    : document.getElementById('payBit').checked
+    ? "ביט"
+    : null;
+
+  if (!paymentMethod) {
+    alert("יש לבחור אמצעי תשלום – ביט או מזומן.");
+    return;
+  }
+
+  const summary =
+    ` סיכום הזמנה:\n` +
+      ` מספר הזמנה: ${orderId}\n` +
+    ` שם: ${name}\n` +
+    ` טלפון: ${phone}\n` +
+    ` כתובת: ${address}\n` +
+    ` הוראות מיוחדות: ${extraInfo || "אין"}\n` +
+    ` מייל לחשבונית: ${email}\n` +
+    ` אמצעי תשלום: ${paymentMethod}\n` +
+    ` <strong>סה״כ לתשלום: ${total} ש"ח</strong>`;
+
+  latestSummary = summary + `\nמקור ההזמנה: direct`;
+  document.getElementById("summary").innerHTML = summary;
+}
+
+
+function sendEmailOnly() {
+  if (!window.latestSummary) {
+    alert("יש לחשב סיכום הזמנה לפני שליחה.");
+    return;
+  }
+
+  if (!document.getElementById('termsConfirm').checked) {
+    alert("יש לאשר את תנאי השירות לפני השליחה.");
+    return;
+  }
+
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const payment = document.getElementById("payCash").checked ? 'מזומן' : 'ביט';
+
+  const clientParams = {
+      order_id: window.currentOrderId,
+    to_name: name,
+    to_email: email,
+    phone: phone,
+    address: address,
+    payment_method: payment,
+    total: window.latestTotal
+  };
+
+  emailjs.send('service_g3p8ge4', 'template_uc1juu9', clientParams)
+    .then(() => {
+      alert("✅ ההזמנה נשלחה בהצלחה!");
+      sendTelegramMessage(window.latestSummary);
+    })
+    .catch(error => {
+      alert("❌ שגיאה בשליחת מייל ללקוח: " + JSON.stringify(error));
+    });
+}
+
+function sendTelegramMessage(message) {
+  const TELEGRAM_TOKEN = "8198187646:AAGV8sbuaQIiCs1i54pNGYt4trK4YBX2wnA";
+  const TELEGRAM_CHAT_ID = "7003207799";
+
+  fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message })
   });
-
-  document.getElementById("diffPlace").addEventListener("change", function () {
-    document.getElementById("sms3").disabled = !this.checked;
-  });
-
-  // לחצן "חשב סיכום הזמנה"
-  function calculateSummary() {
-    let total = 25;
-    const samePlace = document.getElementById("samePlace").checked;
-    const diffPlace = document.getElementById("diffPlace").checked;
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const address = document.getElementById("address").value;
-    const email = document.getElementById("email").value;
-    const paymentMethod = document.getElementById("payBit").checked ? "ביט" : "מזומן";
-
-    if (samePlace) total += 5;
-    if (diffPlace) total += 15;
-
-    let summaryText = `סיכום הזמנה:\n`;
-    summaryText += `שם: ${name}\n`;
-    summaryText += `טלפון: ${phone}\n`;
-    summaryText += `כתובת: ${address}\n`;
-    summaryText += `אימייל: ${email}\n`;
-    summaryText += `אמצעי תשלום: ${paymentMethod}\n`;
-    summaryText += `\nעלויות:\nחבילה ראשונה – 25 ש"ח\n`;
-    if (samePlace) summaryText += `חבילה נוספת מאותו מקום – 5 ש"ח\n`;
-    if (diffPlace) summaryText += `חבילה נוספת ממקום אחר – 15 ש"ח\n`;
-    summaryText += `\n✅ סה"כ לתשלום: ${total} ש"ח`;
-
-    document.getElementById("summary").innerText = summaryText;
-  }
-
-  // שליחת אימייל
-  function sendEmailOnly() {
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const address = document.getElementById("address").value;
-    const email = document.getElementById("email").value;
-    const extraInfo = document.getElementById("extraInfo").value;
-    const sms = document.getElementById("sms").value;
-    const sms2 = document.getElementById("sms2").value;
-    const sms3 = document.getElementById("sms3").value;
-    const paymentMethod = document.getElementById("payBit").checked ? "ביט" : "מזומן";
-
-    let total = 25;
-    if (document.getElementById("samePlace").checked) total += 5;
-    if (document.getElementById("diffPlace").checked) total += 15;
-
-    const templateParams = {
-      to_name: name,
-      address: address,
-      phone: phone,
-      email: email,
-      extra_info: extraInfo,
-      payment_method: paymentMethod,
-      total: total,
-      sms_html: sms,
-      sms2_html: sms2,
-      sms3_html: sms3
-    };
-
-    emailjs.send("service_g3p8gge4", "template_uc1juu9", templateParams)
-      .then(() => {
-        alert("הזמנה נשלחה בהצלחה! מייל נשלח ללקוח ✅");
-      }, (error) => {
-        alert("קרתה תקלה בשליחה: " + JSON.stringify(error));
-      });
-  }
-
-  // ביט קופץ
-  function showBitNumber(show) {
-    document.getElementById("bitNumberLine").style.display = show ? "block" : "none";
-  }
-</script>
-
-</body>
+}
+</script></body>
 </html>
