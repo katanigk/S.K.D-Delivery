@@ -159,6 +159,8 @@ function calculateSummary() {
   if (document.getElementById('diffPlace').checked) total += 15;
   window.latestTotal = total;
 
+
+
   const paymentMethod = document.getElementById('payCash').checked
     ? "מזומן"
     : document.getElementById('payBit').checked
@@ -170,7 +172,23 @@ function calculateSummary() {
     return;
   }
 
-  const summary =
+   const packageCount = 1 
+  + (document.getElementById('samePlace').checked ? 1 : 0) 
+  + (document.getElementById('diffPlace').checked ? 1 : 0);
+
+const clientSummary =
+  `מספר הזמנה: ${orderId}\n` +
+  `למי למסור: ${name}\n` +
+  `כתובת למשלוח: ${address}\n` +
+  `הוראות מיוחדות: ${extraInfo || "אין"}\n` +
+  `מספר חבילות שהוזמנו: ${packageCount}\n` +
+  `מייל לחשבונית: ${email}\n` +
+  `איך בחרת לשלם: ${paymentMethod}\n` +
+  `\nסה״כ לתשלום: ${total} ש"ח`;
+
+document.getElementById("summary").innerText = clientSummary;
+
+  const internalSummary =
     `📦 סיכום הזמנה:\n` +
     `מספר הזמנה: ${orderId}\n` +
     `שם: ${name}\n` +
@@ -182,13 +200,13 @@ function calculateSummary() {
     (sms2 ? `📦 חבילה נוספת מאותו מקום:\n${sms2}\n` : "") +
     (sms3 ? `📦 חבילה ממקום אחר:\n${sms3}\n` : "") +
     (note ? `הערות: ${note}\n` : "") +
+       `מספר חבילות: ${packageCount}\n` +
     `אמצעי תשלום: ${paymentMethod}\n` +
     `סה״כ לתשלום: ${total} ש"ח`;
 
-  window.latestSummary = summary + `\n\n📲 מקור ההזמנה: direct`;
-  document.getElementById("summary").innerText = summary;
+  window.latestSummary = internalSummary + `\n\n📲 מקור ההזמנה: direct`;
+  
 }
-
 
 function sendEmailOnly() {
   if (!window.latestSummary) {
@@ -206,15 +224,23 @@ function sendEmailOnly() {
   const address = document.getElementById("address").value.trim();
   const email = document.getElementById("email").value.trim();
   const payment = document.getElementById("payCash").checked ? 'מזומן' : 'ביט';
+  const sms = document.getElementById("sms").value.trim();
+  const sms2 = document.getElementById("sms2").value.trim();
+  const sms3 = document.getElementById("sms3").value.trim();
+  const note = document.getElementById("note").value.trim();
 
   const clientParams = {
-      order_id: window.currentOrderId,
+    order_id: window.currentOrderId,
     to_name: name,
     to_email: email,
     phone: phone,
     address: address,
     payment_method: payment,
-    total: window.latestTotal
+    total: window.latestTotal,
+    sms: sms,
+    sms2: sms2,
+    sms3: sms3,
+    note: note
   };
 
   emailjs.send('service_g3p8ge4', 'template_uc1juu9', clientParams)
@@ -227,6 +253,7 @@ function sendEmailOnly() {
     });
 }
 
+
 function sendTelegramMessage(message) {
   const TELEGRAM_TOKEN = "8198187646:AAGV8sbuaQIiCs1i54pNGYt4trK4YBX2wnA";
   const TELEGRAM_CHAT_ID = "7003207799";
@@ -236,6 +263,31 @@ function sendTelegramMessage(message) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message })
   });
-}
+}window.onload = function () {
+  console.log("✅ window.onload התחיל");
+
+  const samePlaceCheckbox = document.getElementById('samePlace');
+  const diffPlaceCheckbox = document.getElementById('diffPlace');
+  const sms2 = document.getElementById('sms2');
+  const sms3 = document.getElementById('sms3');
+
+  if (!samePlaceCheckbox || !diffPlaceCheckbox || !sms2 || !sms3) {
+    console.error("❌ אחד האלמנטים לא נמצא – בדוק את ה־id בקובץ HTML");
+    return;
+  }
+
+  samePlaceCheckbox.addEventListener('change', function () {
+    sms2.disabled = !this.checked;
+    console.log("📦 חבילה מאותו מקום – מצב: ", this.checked);
+  });
+
+  diffPlaceCheckbox.addEventListener('change', function () {
+    sms3.disabled = !this.checked;
+    console.log("📦 חבילה ממקום אחר – מצב: ", this.checked);
+  });
+
+  console.log("🎯 Event Listeners נטענו בהצלחה");
+};
+
 </script></body>
 </html>
